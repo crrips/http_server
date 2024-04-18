@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: sqlite:///id.db
+      FLASK_APP: src/server.py
+
+  db:
+    image: alpine
+    command: tail -f /dev/null
